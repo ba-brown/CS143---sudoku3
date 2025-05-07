@@ -103,12 +103,28 @@ public class MySudokuBoard {
        return false; 
      }else if(isSolved()){
        return true;
+     } else {
+       for(int r = 0; r < myBoard.length; r++) {
+         for(int c = 0; c < myBoard[r].length; c++) {
+            if(myBoard[r][c] == '.') {
+               for(char i = '1'; i <= '9'; i++) {
+                  myBoard[r][c] = i;
+                  if(!solve()){
+                     myBoard[r][c] = '.';   
+                  } else {
+                     return true;
+                  }
+                  
+               }
+            }   
+         }
+         
+       }
+       return false;
      }
-     else{
-       return true;// returning true and until we finsh recursive method
-     }
-     
    }
+     
+   
    
    public String toString() {
       String result = "My Board:\n\n";
