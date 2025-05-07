@@ -98,6 +98,17 @@ public class MySudokuBoard {
       }
       return mini;
    }
+   public boolean solve(){
+     if(!isValid()){
+       return false; 
+     }else if(isSolved()){
+       return true;
+     }
+     else{
+       return true;// returning true and until we finsh recursive method
+     }
+     
+   }
    
    public String toString() {
       String result = "My Board:\n\n";
