@@ -99,19 +99,19 @@ public class MySudokuBoard {
       return mini;
    }
    public boolean solve(){
-     if(!isValid()){
+     if(!isValid()){                                     //initial check if board is valid.
        return false; 
-     }else if(isSolved()){
+     }else if(isSolved()){                               //initial check if board is solved.
        return true;
      } else {
-       for(int r = 0; r < myBoard.length; r++) {
+       for(int r = 0; r < myBoard.length; r++) {         //this loops through each cell of the board.
          for(int c = 0; c < myBoard[r].length; c++) {
-            if(myBoard[r][c] == '.') {
-               for(char i = '1'; i <= '9'; i++) {
+            if(myBoard[r][c] == '.') {                   //this checks if the cell is empty.
+               for(char i = '1'; i <= '9'; i++) {        //this loops through 1-9 and tries them in the board.
                   myBoard[r][c] = i;
-                  if(!solve()){
-                     myBoard[r][c] = '.';   
-                  } else {
+                  if(!solve()){                          //checks if the board comes back invalid after placing a value in the cell.
+                     myBoard[r][c] = '.';                //replaces the cell value with '.' and sends it back up to try the next.
+                  } else {                               //checks and returns true if board is solved.
                      return true;
                   }
                   
